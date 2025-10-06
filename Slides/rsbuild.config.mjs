@@ -23,6 +23,9 @@ export default defineConfig({
             root: 'docs',
         }
     },
+    server: {
+        base: '/CodeClub_adv1',
+    },
     tools: {
         rspack: {
             module: {
