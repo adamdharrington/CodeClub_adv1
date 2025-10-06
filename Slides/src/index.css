@@ -1,0 +1,33 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font: 400 100%/1.25 sans-serif;
+  box-sizing: border-box;
+}
+
+.reveal {
+  width: 100vw;
+  height: 100vh;
+}
+
+.reveal .side {
+  display: flex;
+}
+
+.reveal .col {
+  flex: 1 0 50%;
+}
+
+.reveal table {
+  font-size: 0.75em;
+}
+
+.reveal ul,
+.reveal ol {
+  text-align: left;
+  display: block;
+}

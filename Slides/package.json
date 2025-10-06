@@ -1,0 +1,24 @@
+{
+  "name": "slides",
+  "version": "1.0.0",
+  "description": "slide deck for codeclub adv1 room",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "rsbuild build",
+    "check": "biome check --write",
+    "dev": "rsbuild dev --open",
+    "format": "biome format --write",
+    "preview": "rsbuild preview"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.2.3",
+    "@rsbuild/core": "^1.5.6",
+    "@tsconfig/node22": "^22.0.2",
+    "typescript": "^5.9.3"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "reveal.js": "^5.2.1"
+  }
+}

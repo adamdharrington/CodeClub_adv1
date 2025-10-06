@@ -1,0 +1,14 @@
+node_modules/
+dist/
+docs/
+.env
+.DS_Store
+*.local
+*.log*
+.vscode/
+.idea/
+*.log
+coverage/
+
+.rspack-profile-*/
+
