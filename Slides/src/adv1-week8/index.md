@@ -665,9 +665,7 @@ Every HTML element is a box with:
 
 ## Debugging Layout Issues
 
-<!-- .slide: style="text-align: left;font-size:0.75em" -->
-
-**Common problems:**
+<!-- .slide: style="text-align: left;font-size:0.7em" -->
 
 **Layout not working?**
 
