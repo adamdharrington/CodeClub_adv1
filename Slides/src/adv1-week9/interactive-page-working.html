@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript Interactive Exercises</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: #333;
+        background-color: #f5f5f5;
+      }
+
+      header {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        text-align: center;
+        padding: 40px 20px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      header h1 {
+        margin: 0;
+        font-size: 2.5em;
+      }
+
+      header p {
+        margin: 10px 0 0 0;
+        font-size: 1.2em;
+        opacity: 0.95;
+      }
+
+      main {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      .exercise-box {
+        margin: 30px 0;
+        padding: 30px;
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Exercise-specific colors */
+      #exercise-1 {
+        border-left: 6px solid #4caf50;
+        background: linear-gradient(to right, #e8f5e9, #ffffff);
+      }
+
+      #exercise-2 {
+        border-left: 6px solid #2196f3;
+        background: linear-gradient(to right, #e3f2fd, #ffffff);
+      }
+
+      #exercise-3 {
+        border-left: 6px solid #ff9800;
+        background: linear-gradient(to right, #fff3e0, #ffffff);
+      }
+
+      #exercise-4 {
+        border-left: 6px solid #9c27b0;
+        background: linear-gradient(to right, #f3e5f5, #ffffff);
+      }
+
+      #exercise-5 {
+        border-left: 6px solid #e91e63;
+        background: linear-gradient(to right, #fce4ec, #ffffff);
+      }
+
+      .exercise-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .exercise-header h2 {
+        margin: 0;
+        font-size: 1.8em;
+        color: #34495e;
+      }
+
+      .difficulty-badge {
+        display: inline-block;
+        padding: 6px 12px;
+        border-radius: 12px;
+        font-size: 0.85em;
+        font-weight: bold;
+        text-transform: uppercase;
+        color: white;
+      }
+
+      .difficulty-badge.easy {
+        background-color: #4caf50;
+      }
+
+      .difficulty-badge.bonus {
+        background-color: #9c27b0;
+      }
+
+      .difficulty-badge.creative {
+        background-color: #e91e63;
+      }
+
+      .instructions,
+      .code-area,
+      .try-it {
+        margin: 20px 0;
+        padding: 20px;
+        background-color: #fafafa;
+        border-radius: 8px;
+      }
+
+      .instructions h3,
+      .code-area h3,
+      .try-it h3 {
+        margin-top: 0;
+        font-size: 1.3em;
+        color: #555;
+      }
+
+      .instructions ul {
+        margin: 10px 0;
+        padding-left: 20px;
+      }
+
+      .instructions li {
+        margin: 5px 0;
+      }
+
+      pre {
+        background-color: #2d2d2d;
+        color: #f8f8f2;
+        padding: 15px;
+        border-radius: 6px;
+        overflow-x: auto;
+        font-family: 'Courier New', monospace;
+        font-size: 0.95em;
+        line-height: 1.5;
+      }
+
+      code {
+        font-family: 'Courier New', monospace;
+      }
+
+      .hint {
+        background-color: #fff9c4;
+        border-left: 4px solid #fbc02d;
+        padding: 12px;
+        margin: 10px 0;
+        border-radius: 4px;
+        font-style: italic;
+      }
+
+      button {
+        background-color: #3498db;
+        color: white;
+        border: none;
+        padding: 12px 24px;
+        font-size: 16px;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.1s ease;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      button:hover {
+        background-color: #2980b9;
+      }
+
+      button:active {
+        transform: scale(0.98);
+      }
+
+      footer {
+        text-align: center;
+        padding: 40px 20px;
+        color: #777;
+        font-size: 1.1em;
+      }
+
+      .try-it {
+        background-color: #e8f5e9;
+        border: 2px dashed #4caf50;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>JavaScript Interactive Exercises</h1>
+      <p>Follow along with mentors and complete each exercise!</p>
+    </header>
+
+    <main>
+      <!-- Exercise 1: Simple Alert Button -->
+      <section id="exercise-1" class="exercise-box">
+        <div class="exercise-header">
+          <h2>Exercise 1: Simple Alert Button</h2>
+          <span class="difficulty-badge easy">Easy - Fill in the Blank</span>
+        </div>
+
+        <div class="instructions">
+          <h3>Instructions:</h3>
+          <p>
+            Make a button that shows a popup message when clicked! Fill in the
+            blank with your message.
+          </p>
+        </div>
+
+        <div class="code-area">
+          <h3>Your Code:</h3>
+          <p>Fill in the blank with a message:</p>
+          <pre><code>&lt;button onclick="alert('_____')"&gt;Click Me!&lt;/button&gt;</code></pre>
+          <p class="hint">💡 Hint: Try "Hello World!" or "You clicked me!"</p>
+        </div>
+
+        <div class="try-it">
+          <h3>Try It Out:</h3>
+          <button id="alert-demo-btn">Click Me!</button>
+        </div>
+
+        <script>
+          document.getElementById('alert-demo-btn').onclick = function () {
+            alert('Hello World!')
+          }
+        </script>
+      </section>
+
+      <!-- Exercise 2: Change Message Text and Color -->
+      <section id="exercise-2" class="exercise-box">
+        <div class="exercise-header">
+          <h2>Exercise 2: Change Message Text and Color</h2>
+          <span class="difficulty-badge easy">Easy - 2 Blanks</span>
+        </div>
+
+        <div class="instructions">
+          <h3>Instructions:</h3>
+          <p>
+            Make a button that changes the message text and color when clicked!
+          </p>
+          <ul>
+            <li>Change the text to "You clicked it! 🎉"</li>
+            <li>Change the color to green</li>
+          </ul>
+        </div>
+
+        <div class="code-area">
+          <h3>Your HTML:</h3>
+          <pre><code>&lt;button id="change-message-btn"&gt;Change Message&lt;/button&gt;
+&lt;p id="message-text"&gt;Click the button above&lt;/p&gt;</code></pre>
+
+          <h3>Your JavaScript:</h3>
+          <p>Fill in the blanks:</p>
+          <pre><code>let button = document.getElementById('change-message-btn');
+let message = document.getElementById('message-text');
+
+button.onclick = function() {
+    message._____ = 'You clicked it! 🎉';  // Change the text
+    message.style._____ = 'green';          // Change the color
+};</code></pre>
+          <p class="hint">
+            💡 Hints: Use 'textContent' for text and 'color' for color
+          </p>
+        </div>
+
+        <div class="try-it">
+          <h3>Try It Out:</h3>
+          <button id="demo-change-btn">Change Message</button>
+          <p id="demo-message">Click the button above</p>
+        </div>
+
+        <script>
+          let demoBtn = document.getElementById('demo-change-btn')
+          let demoMsg = document.getElementById('demo-message')
+
+          demoBtn.onclick = function () {
+            demoMsg.textContent = 'You clicked it! 🎉'
+            demoMsg.style.color = 'green'
+          }
+        </script>
+      </section>
+
+      <!-- Exercise 3: Change Heading Color and Text -->
+      <section id="exercise-3" class="exercise-box">
+        <div class="exercise-header">
+          <h2>Exercise 3: Change Heading Color and Text</h2>
+          <span class="difficulty-badge easy">Medium - 5 Blanks</span>
+        </div>
+
+        <div class="instructions">
+          <h3>Instructions:</h3>
+          <p>
+            Now with less help! Make a button that changes a heading's color and
+            text.
+          </p>
+          <ul>
+            <li>Find the button and heading elements</li>
+            <li>Add a click handler</li>
+            <li>Change the heading text to "New Heading!"</li>
+            <li>Change the heading color to blue</li>
+          </ul>
+        </div>
+
+        <div class="code-area">
+          <h3>Your HTML:</h3>
+          <pre><code>&lt;button id="heading-btn"&gt;Change Heading&lt;/button&gt;
+&lt;h1 id="main-heading"&gt;Original Heading&lt;/h1&gt;</code></pre>
+
+          <h3>Your JavaScript:</h3>
+          <p>Fill in the blanks to make it work:</p>
+          <pre><code>let button = document._____(_____)
+let heading = document._____(_____)
+
+button._____ = function() {
+    heading._____ = 'New Heading!';
+    heading.style._____ = 'blue';
+};</code></pre>
+          <p class="hint">
+            💡 Hint: Remember getElementById, onclick, textContent, and color
+          </p>
+        </div>
+
+        <div class="try-it">
+          <h3>Try It Out:</h3>
+          <button id="demo-heading-btn">Change Heading</button>
+          <h1 id="demo-heading">Original Heading</h1>
+        </div>
+
+        <script>
+          let headingBtn = document.getElementById('demo-heading-btn')
+          let heading = document.getElementById('demo-heading')
+
+          headingBtn.onclick = function () {
+            heading.textContent = 'New Heading!'
+            heading.style.color = 'blue'
+          }
+        </script>
+      </section>
+
+      <!-- Exercise 4: Hover Effects -->
+      <section id="exercise-4" class="exercise-box">
+        <div class="exercise-header">
+          <h2>Exercise 4: Hover Effects</h2>
+          <span class="difficulty-badge bonus">Bonus Challenge</span>
+        </div>
+
+        <div class="instructions">
+          <h3>Instructions:</h3>
+          <p>Make a box that changes color when you hover over it!</p>
+          <ul>
+            <li>When mouse enters: background turns yellow</li>
+            <li>When mouse leaves: background turns back to lightblue</li>
+          </ul>
+        </div>
+
+        <div class="code-area">
+          <h3>Your HTML:</h3>
+          <pre><code>&lt;div id="hover-box" style="width: 200px; height: 200px; background-color: lightblue; padding: 20px; border-radius: 8px;"&gt;
+    Hover over me!
+&lt;/div&gt;</code></pre>
+
+          <h3>Your JavaScript (template to complete):</h3>
+          <pre><code>let box = document.getElementById('_____');
+
+box.onmouseenter = function() {
+    box.style.backgroundColor = '____';
+};
+
+box.onmouseleave = function() {
+    box.style.backgroundColor = '____';
+};</code></pre>
+          <p class="hint">💡 Try using 'yellow' and 'lightblue' for colors</p>
+        </div>
+
+        <div class="try-it">
+          <h3>Try It Out:</h3>
+          <div
+            id="demo-hover-box"
+            style="
+              width: 200px;
+              height: 200px;
+              background-color: lightblue;
+              padding: 20px;
+              border-radius: 8px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              font-size: 1.2em;
+              font-weight: bold;
+            "
+          >
+            Hover over me!
+          </div>
+        </div>
+
+        <script>
+          let demoBox = document.getElementById('demo-hover-box')
+
+          demoBox.onmouseenter = function () {
+            demoBox.style.backgroundColor = 'yellow'
+          }
+
+          demoBox.onmouseleave = function () {
+            demoBox.style.backgroundColor = 'lightblue'
+          }
+        </script>
+      </section>
+
+      <!-- Exercise 5: Your Own Creative Button -->
+      <section id="exercise-5" class="exercise-box">
+        <div class="exercise-header">
+          <h2>Exercise 5: Create Your Own Button!</h2>
+          <span class="difficulty-badge creative">Your Turn!</span>
+        </div>
+
+        <div class="instructions">
+          <h3>Instructions:</h3>
+          <p>
+            Now it's your turn to be creative! Make a button that does something
+            fun.
+          </p>
+          <h4>Ideas to try:</h4>
+          <ul>
+            <li>A button that counts how many times it's been clicked</li>
+            <li>A button that cycles through different colors</li>
+            <li>A button that makes text bigger or smaller</li>
+            <li>A button that shows/hides a secret message</li>
+            <li>Anything else you can imagine!</li>
+          </ul>
+        </div>
+
+        <div class="code-area">
+          <h3>Start Here:</h3>
+          <pre><code>&lt;!-- Add your HTML here --&gt;
+&lt;button id="my-button"&gt;Click Me!&lt;/button&gt;
+&lt;p id="my-text"&gt;Something will happen here...&lt;/p&gt;</code></pre>
+
+          <h3>Your JavaScript:</h3>
+          <pre><code>&lt;script&gt;
+    // Get your elements
+    let myButton = document.getElementById('my-button');
+    let myText = document.getElementById('my-text');
+
+    // Add your code here!
+    myButton.onclick = function() {
+        // What should happen when clicked?
+        console.log('Button clicked!'); // Check console to see this!
+    };
+&lt;/script&gt;</code></pre>
+          <p class="hint">
+            💡 Use console.log() to test your code! Press F12 to open the
+            console.
+          </p>
+        </div>
+
+        <div class="try-it">
+          <h3>Example - Click Counter:</h3>
+          <button id="counter-btn">I've been clicked 0 times</button>
+        </div>
+
+        <script>
+          let counterBtn = document.getElementById('counter-btn')
+          let count = 0
+
+          counterBtn.onclick = function () {
+            count = count + 1
+            counterBtn.textContent = "I've been clicked " + count + ' times'
+            console.log('Click count:', count)
+          }
+        </script>
+      </section>
+    </main>
+
+    <footer>
+      <p>Made with JavaScript! 🚀</p>
+    </footer>
+  </body>
+</html>

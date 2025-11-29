@@ -105,7 +105,7 @@ Let's add some magic! ✨
 **1. In a separate file (recommended):**
 
 ```html
-<script src="script.js"></script>
+<script src="script.js" type="module"></script>
 ```
 
 **2. Inline in HTML:**
@@ -117,6 +117,30 @@ Let's add some magic! ✨
 ```
 
 **Pro tip:** Put `<script>` tags just before `</body>`
+
+---
+
+## Follow Along: Interactive Exercises
+
+<!-- .slide: style="text-align: left;" -->
+
+**Today we'll learn by doing!**
+
+Open this page: `interactive-page.html`
+
+We'll work through 5 exercises together:
+
+1. Simple alert button
+2. Changing text and colors
+3. Your first full button
+4. Hover effects (bonus!)
+5. Your own creative idea
+
+**Teaching pattern:**
+
+- I'll explain a concept
+- You'll practice it in the exercise
+- We'll build on what you learned
 
 ---
 
@@ -232,6 +256,8 @@ button.onclick = function () {
 };
 ```
 
+**👉 Now try Exercise 1 in interactive-page.html**
+
 ---
 
 ## Changing Element Properties
@@ -290,6 +316,22 @@ button.onclick = function () {
 
 ---
 
+## Practice Time: Exercise 2
+
+<!-- .slide: style="text-align: left;" -->
+
+**Go to Exercise 2 in interactive-page.html**
+
+Apply what you just learned:
+
+- Find elements by ID
+- Change textContent
+- Change style.color
+
+**Fill in the blanks!**
+
+---
+
 <!-- .slide: style="text-align: left; font-size: 0.8em;" -->
 
 ## Example: Interactive Button
@@ -324,23 +366,41 @@ button.onclick = function () {
 
 ---
 
-## Task: Your First Interactive Button
+## Practice Time: Exercise 3
+
+<!-- .slide: style="text-align: left;" -->
+
+**Go to Exercise 3 in interactive-page.html**
+
+This time with less help! You got this:
+
+- Use getElementById
+- Use onclick
+- Change properties
+
+**Work independently for 5 minutes**
+
+---
+
+## Task: Add JavaScript to Your Project
 
 <!-- .slide: style="text-align: left; font-size: 0.75em;" -->
 
-**Create a button that does something:**
+**Now add interactivity to your Project 1:**
 
 **Required:**
 
-1. Add a button to one of your Project 1 pages
-2. Create a `script.js` file
-3. Link the script to your HTML
-4. Make the button change something when clicked:
+1. Choose one of your Project 1 pages
+2. Add at least one interactive button
+3. Use what you learned in Exercises 1-3
+4. Make the button change something:
    - Change text content
    - Change a color
-   - Show/hide an element
+   - Both!
 
-**Keep it simple!** One button, one action.
+**Stretch goal:** Add hover effects or a creative feature from Exercise 5
+
+**Keep it simple!** One button, one clear action.
 
 ---
 
@@ -363,6 +423,8 @@ button.onmouseleave = function () {
 ```
 
 **Note:** CSS `:hover` is usually better for simple hover effects, but JavaScript can do it too.
+
+**👉 Bonus: Try Exercise 4 if you're done with Exercise 3!**
 
 ---
 
@@ -457,6 +519,25 @@ We'll learn:
 - Making your sites feel alive!
 
 **Keep practicing with buttons!** 💪
+
+---
+
+## Final Challenge: Exercise 5
+
+<!-- .slide: style="text-align: left;" -->
+
+**Create your own interactive button!**
+
+Go to Exercise 5 in interactive-page.html
+
+**Ideas:**
+
+- Click counter
+- Color cycler
+- Text size changer
+- Anything creative!
+
+**Remember to use console.log() for debugging!**
 
 ---
 
