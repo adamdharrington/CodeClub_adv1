@@ -65,9 +65,9 @@
 
         <script>
           // You can also add the onclick handler here if you prefer:
-          // document.getElementById('alert-demo-btn').onclick = function () {
-          //   alert('Hello World!')
-          // }
+          document.getElementById('alert-demo-btn').onclick = function () {
+            alert('Hello World!')
+          }
         </script>
       </section>
 
@@ -107,8 +107,8 @@
             let message = document.getElementById('demo-message')
 
             button.onclick = function () {
-              // message.___ = 'You clicked it! 🎉'
-              // message.style.___ = 'green'
+              message.textContent = 'You clicked it! 🎉'
+              message.style.color = 'green'
             }
           </script>
         </div>
@@ -147,13 +147,13 @@
           <h1 id="demo-heading">Original Heading</h1>
 
           <script type="module">
-            // let headingBtn = ___?
-            // let heading = ___?
+            let headingBtn = document.getElementById('demo-heading-btn')
+            let heading = document.getElementById('demo-heading')
 
-            // headingBtn.___ = function () {
-            //   // Change heading text
-            //   // Change heading color
-            // }
+            headingBtn.___ = function () {
+              heading.textContent = 'Updated Heading!'
+              heading.style.color = 'blue'
+            }
           </script>
         </div>
       </section>
@@ -188,11 +188,11 @@
             let demoBox = document.getElementById('demo-hover-box')
 
             demoBox.onmouseenter = function () {
-              // Change background to yellow
+              demoBox.style.backgroundColor = 'yellow'
             }
 
             demoBox.onmouseleave = function () {
-              // Change background back to lightblue
+              demoBox.style.backgroundColor = 'lightblue'
             }
           </script>
         </div>
@@ -233,10 +233,21 @@
 
         <!-- *** Exercise 5: Your Own Creative Button -->
         <div class="try-it">
-          <h3>My Own button</h3>
+          <h3>My Counter button with multicolor changing</h3>
           <button id="counter-btn">Click Me!</button>
           <script>
-            // Your creative code here!
+            const counterBtn = document.getElementById('counter-btn')
+            counterBtn.style.backgroundColor = 'hsl(1deg, 70%, 30%)'
+            counterBtn.style.transition = 'background-color 0.3s ease'
+            let count = 0
+            counterBtn.onclick = function () {
+              count++
+              counterBtn.textContent = `Clicked ${count} time${
+                count === 1 ? '' : 's'
+              }`
+              const hue = Math.floor((count * 137) % 360)
+              counterBtn.style.backgroundColor = `hsl(${hue}deg, 70%, 30%)`
+            }
           </script>
         </div>
       </section>
