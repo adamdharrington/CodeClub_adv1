@@ -1,0 +1,290 @@
+/* Basic Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --primary: #4a90e2;
+  --primary-high: #2a7fe1;
+  --primary-low: #71a6e4;
+  --primary-text: #2c2c31;
+  --surface-low: #f7f7f7;
+  --surface-mid: #ffffff;
+
+  --gradient: linear-gradient(
+    to right,
+    var(--primary-high),
+    var(--primary-low)
+  );
+}
+
+.dark-mode {
+  --primary: #1e3a5f;
+  --primary-high: #145293;
+  --primary-low: #3a6bbf;
+  --primary-text: #e0e0e0;
+  --surface-low: #212122;
+  --surface-mid: #2c2c31;
+}
+
+/* Body Styles */
+body {
+  font-family: Arial, sans-serif;
+  background: var(--surface-low);
+  color: var(--primary-text);
+  line-height: 1.6;
+  padding: 16px;
+}
+
+/* Header Styles */
+header {
+  background-color: var(--primary);
+  background: var(--gradient);
+  color: #fff;
+  padding: 24px 16px;
+  border-radius: 8px;
+  margin-bottom: 24px;
+  position: relative;
+}
+
+#theme-toggle {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  padding: 8px 12px;
+  background-color: var(--primary-low);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+}
+
+#theme-toggle:hover {
+  background-color: var(--primary-high);
+}
+
+header h1 {
+  margin-bottom: 12px;
+}
+
+/* Navigation Styles */
+nav ul {
+  display: flex;
+  gap: 16px;
+  list-style: none;
+}
+
+nav a,
+.read-more {
+  color: #fff;
+  background-color: var(--primary-high);
+  text-decoration: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  /* Smooth transition for hover effect, .2s to .3s is good for most transitions
+    Shorter transitions we don't notice and any longer is distracting */
+  transition: background 0.2s;
+}
+
+/** Navigation Hover Effect – this is a pseudo class, it helps to style elements in a certain state
+  * there's lot's more available like :focus, :active, :visited, :first-child, :last-child etc.
+  * https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/Pseudo-classes
+  */
+nav a:hover {
+  background: var(--primary-low);
+}
+
+/* Main Content Styles */
+main {
+  max-width: 700px;
+  margin: 0 auto 32px auto;
+  background: var(--surface-mid);
+  padding: 24px 16px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Section Headings */
+h2,
+h3 {
+  color: #4a90e2;
+  margin-bottom: 8px;
+  margin-top: 50px;
+}
+
+/* Lists */
+ul,
+ol {
+  margin-bottom: 16px;
+  list-style-position: inside;
+}
+
+/* Footer Styles */
+footer {
+  text-align: center;
+  color: #888;
+  padding: 16px 0;
+  font-size: 0.95em;
+}
+
+.cards {
+  display: grid;
+  margin-inline: -16px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  padding: 16px;
+}
+
+.card {
+  background: var(--surface-mid);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card h2 {
+  line-height: 1.12;
+}
+
+.card p {
+  flex-grow: 1;
+}
+
+.card a:has(h2) {
+  text-decoration: none;
+  color: var(--primary);
+}
+
+.read-more {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  padding-block: 30px;
+}
+
+.details > article h2 {
+  border-bottom: 6px solid var(--primary);
+}
+
+/* ========== PUZZLE CARD FLIP STYLES ========== */
+
+.wide-cards {
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+/* The outer container for each puzzle card */
+.puzzle-card {
+  /* Set a fixed height so cards are uniform */
+  height: 250px;
+  /* Make cursor indicate card is clickable */
+  cursor: pointer;
+  /* This property is needed for 3D transforms to work properly */
+  perspective: 1000px;
+}
+
+/* The inner container that will actually flip */
+.puzzle-card-inner {
+  /* Take up full size of parent */
+  width: 100%;
+  height: 100%;
+  /* Position relative so front/back can be positioned absolutely */
+  position: relative;
+  /* Smooth transition for the flip animation */
+  transition: transform 0.6s;
+  /* This enables 3D transformations */
+  transform-style: preserve-3d;
+}
+
+/* When card has "flipped" class, rotate it 180 degrees */
+.puzzle-card.flipped .puzzle-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Styles shared by both front and back of card */
+.puzzle-card-front,
+.puzzle-card-back {
+  /* Position absolutely to overlap each other */
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  /* Hide the back face when flipped away from viewer */
+  backface-visibility: hidden;
+  /* Add padding and styling to make cards look nice */
+  padding: 20px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Front of card styling */
+.puzzle-card-front {
+  /* Light blue background for questions */
+  background: var(--surface-low);
+  text-align: justify;
+  justify-content: flex-start;
+  gap: 32px;
+}
+
+.puzzle-card-front h3 {
+  margin-top: 0;
+}
+
+/* Back of card styling */
+.puzzle-card-back {
+  /* Start rotated 180 degrees so it's facing backward */
+  transform: rotateY(180deg);
+  /* Green background for answers */
+  background: var(--gradient);
+  color: white;
+}
+
+.puzzle-card-back h3 {
+  color: white;
+  margin-top: 0;
+  margin-bottom: 12px;
+}
+
+/* Large emoji display for answer */
+.answer-emoji {
+  font-size: 80px;
+  margin-top: 20px;
+}
+
+/** This media query says that once the display area is at least this size
+ * apply the following styles. In this case we are increasing the padding
+ * around the main content area for larger screens.
+ */
+@media (min-width: 600px) {
+  header {
+    padding: 32px 40px;
+  }
+
+  main {
+    padding: 32px 40px;
+  }
+
+  .cards {
+    margin-inline: -40px;
+  }
+}

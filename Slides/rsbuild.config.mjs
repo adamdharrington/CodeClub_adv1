@@ -3,16 +3,17 @@ import { defineConfig, rspack } from '@rsbuild/core';
 import {globSync} from 'node:fs'
 
 /** @type {import('@rsbuild/core').RsbuildEntry} */
-const entries = {}
-globSync('./src/*/index.js').sort().forEach((path, index) => {
+const entries = {
+}
+const slides = globSync('./src/*/index.js').sort();
+
+slides.forEach((path, index) => {
     const dirMatch = path.match(/src\/(.*?)\/index\.js/)
     if (dirMatch?.[1]) {
-        if(index === 0) {
-            entries['index'] = `./${path}`;
-        }
         entries[dirMatch[1]] = `./${path}`;
     }
 });
+
 
 export default defineConfig({
     source: {
@@ -39,7 +40,7 @@ export default defineConfig({
             },
             plugins: [
                 new rspack.CopyRspackPlugin({
-                    patterns: [{ from: 'public' }]
+                    patterns: [{ from: 'public' }, { from: 'src/index', to: '.' }],
                 })
             ]
         }
